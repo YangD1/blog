@@ -6,10 +6,9 @@ const { VueLoaderPlugin } = require('vue-loader')
 module.exports = {
   mode: "development",
   devtool: 'eval-cheap-module-source-map',
-  entry: './src/index.js',
+  entry: './src/main.js',
   module: {
     rules: [
-      // ... other rules
       {
         test: /\.vue$/,
         loader: 'vue-loader'
@@ -22,7 +21,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'public/index.html',
+      title: "yangdi's blog"
     }),
     new CleanWebpackPlugin(),
     new VueLoaderPlugin()
