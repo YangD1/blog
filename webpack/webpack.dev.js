@@ -1,11 +1,21 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
   mode: "development",
+  devtool: 'eval-cheap-module-source-map',
   entry: './src/index.js',
-  module: {},
+  module: {
+    rules: [
+      // ... other rules
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      }
+    ]
+  },
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -15,6 +25,7 @@ module.exports = {
       template: 'src/index.html'
     }),
     new CleanWebpackPlugin(),
+    new VueLoaderPlugin()
   ],
   devServer: {
     static: {
