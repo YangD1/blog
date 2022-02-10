@@ -17,11 +17,12 @@ dotenv.config({
 });
 console.log("【process.env】", process.env.ENV);
 
-module.exports = (env) => {
-  return {
-    mode: "development",
-    devtool: "eval-cheap-module-source-map",
+module.exports =  {
     entry: "./src/main.js",
+    output: {
+      filename: "bundle.js",
+      path: path.resolve(__dirname, "dist"),
+    },
     module: {
       rules: [
         {
@@ -61,10 +62,6 @@ module.exports = (env) => {
         },
       ],
     },
-    output: {
-      filename: "bundle.js",
-      path: path.resolve(__dirname, "dist"),
-    },
     plugins: [
       new HtmlWebpackPlugin({
         template: "public/index.html",
@@ -76,12 +73,4 @@ module.exports = (env) => {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       }),
     ],
-    devServer: {
-      static: {
-        directory: path.join(__dirname, "public"),
-      },
-      compress: true,
-      port: 9000,
-    },
   };
-};
