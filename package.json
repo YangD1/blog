@@ -8,14 +8,19 @@
     "build": "webpack --config webpack.prod.js"
   },
   "dependencies": {
-    "dot-env": "^0.0.1",
-    "lodash": "^4.17.21",
+    "element-plus": "^2.0.1",
     "vue": "^3.2.29"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
+    "css-loader": "^6.6.0",
+    "dotenv": "^16.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "lodash": "^4.17.21",
+    "sass": "^1.49.7",
+    "sass-loader": "^12.4.0",
+    "style-loader": "^3.3.1",
     "vue-loader": "^17.0.0",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^5.68.0",

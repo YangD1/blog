@@ -2,7 +2,8 @@ const fs = require('fs')
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-const { VueLoaderPlugin } = require('vue-loader')
+const { VueLoaderPlugin } = 
+require('vue-loader')
 const dotenv = require('dotenv');
 const webpack = require("webpack")
 const PROJECT_PATH = path.resolve(__dirname, "../");
@@ -24,8 +25,28 @@ module.exports = env => {
         {
           test: /\.vue$/,
           loader: 'vue-loader'
+        },
+        {
+          test: /\.s[ac]ss$/i,
+          use: [{
+              loader: "style-loader" // 将 JS 字符串生成为 style 节点
+          }, {
+              loader: "css-loader" // 将 CSS 转化成 CommonJS 模块
+          }, {
+              loader: "sass-loader" // 将 Sass 编译成 CSS
+          }],
+        },
+        {
+          test: /\.css$/,
+          use: [ 'style-loader', 'css-loader' ]
+        },
+        {
+          test: /\.mjs$/i,
+          resolve: { byDependency: { esm: { fullySpecified: false } } },
+          include: /node_modules/,
+          type: "javascript/auto"
         }
-      ]
+    ]
     },
     output: {
       filename: 'bundle.js',

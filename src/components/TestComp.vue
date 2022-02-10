@@ -1,11 +1,8 @@
 <template>
   <div>
     测试插件
-    {{NODE_ENV_TYPE}}
+    <el-button>测试按钮11</el-button>
   </div>
 </template>
 
-<script setup>
-import {reactive} from "vue"
-let NODE_ENV_TYPE = reactive(NODE_ENV)
-</script>
+<script setup></script>
