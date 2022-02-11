@@ -13,7 +13,7 @@ const dotenvFile = path.resolve(PROJECT_PATH, `./.env.${process.env.NODE_ENV}`);
 dotenv.config({
   path: fs.existsSync(dotenvFile)
     ? dotenvFile
-    : resolve(PROJECT_PATH, `./.env`),
+    : path.resolve(PROJECT_PATH, `./.env`),
 });
 console.log("【process.env】", process.env.ENV);
 
@@ -21,7 +21,7 @@ module.exports =  {
     entry: "./src/main.js",
     output: {
       filename: "bundle.js",
-      path: path.resolve(__dirname, "dist"),
+      path: path.resolve(__dirname, "../dist"),
     },
     module: {
       rules: [

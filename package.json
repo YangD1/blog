@@ -5,14 +5,22 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack/webpack.config.dev.js",
-    "build": "webpack --config webpack.config.prod.js"
+    "build": "webpack --config ./webpack/webpack.config.prod.js"
   },
   "dependencies": {
+    "@babel/runtime": "^7.17.2",
     "element-plus": "^2.0.1",
+    "eslint": "^7.32.0",
+    "eslint-loader": "^4.0.2",
     "normalize.css": "^8.0.1",
     "vue": "^3.2.29"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.2",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.6.0",
