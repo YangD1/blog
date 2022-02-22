@@ -1,14 +1,10 @@
+<script setup lang="ts">
+</script>
+
 <template>
-  <div>
-    {{ state }}
-    <TestComp />
+  <div >
+    <!-- {{ state }} -->
+    <!-- <TestComp /> -->
+    {{count}}
   </div>
 </template>
-
-<script setup>
-import { onMounted, reactive } from "vue"
-import TestComp from "./components/TestComp.vue"
-onMounted(() => {
-  let state = reactive("yang")
-})
-</script>

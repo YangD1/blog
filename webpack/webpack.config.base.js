@@ -18,7 +18,7 @@ dotenv.config({
 console.log("【process.env】", process.env.ENV);
 
 module.exports =  {
-    entry: "./src/main.js",
+    entry: path.resolve(__dirname, '../src') + "/main.ts",
     output: {
       filename: "bundle.js",
       path: path.resolve(__dirname, "../dist"),
@@ -60,7 +60,18 @@ module.exports =  {
           include: /node_modules/,
           type: "javascript/auto",
         },
+        {
+          test: /\.tsx?$/,
+          use: "ts-loader",
+          exclude: "/node_modules/"
+        },
       ],
+    },
+    resolve:  {
+      extensions: ['.tsx', '.ts', '.js'],
+      fallback: {
+        "path": require.resolve("path-browserify")
+      }
     },
     plugins: [
       new HtmlWebpackPlugin({
