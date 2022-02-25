@@ -30,6 +30,15 @@ module.exports =  {
           loader: "vue-loader",
         },
         {
+          test: /.ts$/,
+          use: [{
+            loader: 'ts-loader',
+            options: {
+              appendTsSuffixTo: [/.vue$/],
+            }
+          }]
+        },
+        {
           test: /\.s[ac]ss$/i,
           use: [
             {
@@ -60,11 +69,15 @@ module.exports =  {
           include: /node_modules/,
           type: "javascript/auto",
         },
-        {
-          test: /\.tsx?$/,
-          use: "ts-loader",
-          exclude: "/node_modules/"
-        },
+        // {
+        //     test: /.ts$/,
+        //     use: [{
+        //       loader: 'ts-loader',
+        //       options: {
+        //         appendTsSuffixTo: [/.vue$/],
+        //       }
+        //     }]
+        // }
       ],
     },
     resolve:  {
